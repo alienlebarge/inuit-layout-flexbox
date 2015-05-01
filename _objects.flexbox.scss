@@ -54,7 +54,7 @@ $i: 1;
    */
   .flex__item--#{$i} {
     $flex-basis: 100/12*$i*1%;
-    width: $flex-basis;
+    @include flex(0 1 $flex-basis);
     padding-right: $inuit-flexbox-spacing-unit;
     padding-left: $inuit-flexbox-spacing-unit;
   }
