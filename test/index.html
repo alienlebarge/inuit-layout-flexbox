@@ -5,21 +5,13 @@
   <title>inuit-flexbox</title>
   <link rel="stylesheet" href="test.css">
   <style>
+    body {
+      background-color: #eee;
+    }
     .box {
       background-color: #60A5EA;
-      margin: 1em;
-    }
-    .box > div {
-      background-color: #8B22D8;
-      margin: 1em;
-    }
-    .box > div > div {
-      background-color: #5A1A80;
-      margin: 1em;
-    }
-    .box > div > div > div {
-      background-color: #331E38;
-      margin: 1em;
+      padding: 1em;
+      margin-bottom: 1em;
     }
   </style>
 </head>
@@ -27,11 +19,62 @@
   <h1>Inuit-flexbox</h1>
   <h2>Classic flexbox grid</h2>
 
-  <div class="flex box">
-    <div class="flex__item--1">1</div> 
-    <div class="flex__item--1">1</div>
-    <div class="flex__item--1">1</div>
-    <div class="flex__item--1">1</div>
+  <div class="flex">
+    <div class="flex__item--1"><div class="box"></div></div>
+    <div class="flex__item--11"><div class="box"></div></div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--2"><div class="box"></div></div>
+    <div class="flex__item--10"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--3"><div class="box"></div></div>
+    <div class="flex__item--9"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--4"><div class="box"></div></div>
+    <div class="flex__item--8"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--5"><div class="box"></div></div>
+    <div class="flex__item--7"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--6"><div class="box"></div></div>
+    <div class="flex__item--6"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--7"><div class="box"></div></div>
+    <div class="flex__item--5"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--8"><div class="box"></div></div>
+    <div class="flex__item--4"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--9"><div class="box"></div></div>
+    <div class="flex__item--3"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--10"><div class="box"></div></div>
+    <div class="flex__item--2"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--11"><div class="box"></div></div>
+    <div class="flex__item--1"><div class="box"></div></div>
+  </div>
+  </div>
+  <div class="flex">
+    <div class="flex__item--12"><div class="box"></div></div>
   </div>
 
   <h2>Flexbox 12 columns grid</h2>
