@@ -1,0 +1,24 @@
+{
+  "name": "inuit-flexbox",
+  "version": "0.0.0",
+  "authors": [
+    "Cédric Aellen <cedric.aellen@alienlebarge.ch>"
+  ],
+  "description": "A flexbox grid system for inuitcss framework",
+  "main": "_objects.flexbox.scss",
+  "keywords": [
+    "grid",
+    "flexbox",
+    "inuitcss",
+    "oocss",
+    "css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
