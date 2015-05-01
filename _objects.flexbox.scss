@@ -36,16 +36,19 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 }
 
 /**
- * Container
+ * Row
  *
- * 1. Defines the alignment along the main axis. Item are aligned on the left.
+ * 1. Defines the default behaviour for how flex items are laid out along the
+ *    cross axis on the current line. Item are aligned at the top. Items are
+ *    aligned to the top.
+ * 2. Defines the alignment along the main axis. Items are aligne on the left.
  */
 .#{$inuit-flexbox-namespace}flex {
   @include flexbox();
   flex-direction: row;
   flex-wrap: wrap;
-  flex-flow: flex-start; /* [1] */
-  justify-content: space-around;
+  align-items: flex-start; /* [1] */
+  justify-content: flex-start; /* [2]*/
   margin-right: -$inuit-flexbox-spacing-unit;
   margin-left: -$inuit-flexbox-spacing-unit;
 }
