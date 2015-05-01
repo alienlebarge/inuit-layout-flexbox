@@ -1,0 +1,24 @@
+/*------------------------------------*\
+    #FLEXBOX
+\*------------------------------------*/
+
+// Predefine the variables below in order to alter and enable specific features.
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.flex__item {
+
+}
+
+$i: 1;
+@while $i < 12 {
+  .flex__item--#{$i} {
+    flex: $i;
+    }
+  $i: $i + 1;
+}
