@@ -37,11 +37,14 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 
 /**
  * Container
+ *
+ * 1. Defines the alignment along the main axis. Item are aligned on the left.
  */
 .#{$inuit-flexbox-namespace}flex {
   @include flexbox();
   flex-direction: row;
   flex-wrap: wrap;
+  flex-flow: flex-start; /* [1] */
   justify-content: space-around;
   margin-right: -$inuit-flexbox-spacing-unit;
   margin-left: -$inuit-flexbox-spacing-unit;
