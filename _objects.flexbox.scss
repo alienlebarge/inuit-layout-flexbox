@@ -7,9 +7,39 @@ $inuit-flexbox-namespace:    $inuit-namespace !default;
 
 $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 
+//------------------------------------
+// Mixins
+//------------------------------------
 
-.#{$inuit-flexbox-namespace}flex {
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+/**
+ * Container
+ */
+.#{$inuit-flexbox-namespace}flex {
+  @include flexbox();
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -18,21 +48,15 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 }
 
 $i: 1;
-@while $i < 12 {
+@while $i <= 12 {
+  /**
+   * Flex items #{$i} column width
+   */
   .flex__item--#{$i} {
-    flex: $i 1 auto;
-    }
-  $i: $i + 1;
-}
-
-.flex--column {
-  $i: 1;
-  @while $i < 12 {
-    .flex__item--1 {
-      $flex-basis: 100/12*$i*1%;
-      width: $flex-basis;
-      flex: 0 1 auto;
-    }
-  $i: $i + 1;
+    $flex-basis: 100/12*$i*1%;
+    width: $flex-basis;
+    padding-right: $inuit-flexbox-spacing-unit;
+    padding-left: $inuit-flexbox-spacing-unit;
   }
+$i: $i + 1;
 }
