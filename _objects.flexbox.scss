@@ -3,12 +3,18 @@
 \*------------------------------------*/
 
 // Predefine the variables below in order to alter and enable specific features.
+$inuit-flexbox-namespace:    $inuit-namespace !default;
 
-.flex {
+$inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
+
+
+.#{$inuit-flexbox-namespace}flex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-right: -$inuit-flexbox-spacing-unit;
+  margin-left: -$inuit-flexbox-spacing-unit;
 }
 
 $i: 1;
