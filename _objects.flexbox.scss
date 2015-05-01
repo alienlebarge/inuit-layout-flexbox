@@ -11,14 +11,22 @@
   justify-content: space-around;
 }
 
-.flex__item {
-
-}
-
 $i: 1;
 @while $i < 12 {
   .flex__item--#{$i} {
-    flex: $i;
+    flex: $i 1 auto;
     }
   $i: $i + 1;
+}
+
+.flex--column {
+  $i: 1;
+  @while $i < 12 {
+    .flex__item--1 {
+      $flex-basis: 100/12*$i*1%;
+      width: $flex-basis;
+      flex: 0 1 auto;
+    }
+  $i: $i + 1;
+  }
 }
