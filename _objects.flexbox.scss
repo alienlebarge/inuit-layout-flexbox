@@ -54,7 +54,7 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 }
 
 /**
- * Grid with flexible columns widths.
+ * Grid with flexible columns widths
  */
 .flex--flex {
   $i: 1;
@@ -69,9 +69,9 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 }
 
 /**
- * Grid with fixed columns widths
+ * 12 columns grid
  *
- * The grid has 12 columns.
+ * Items can be from 1 to 12 columns width
  */
 .flex--fix {
   $i: 1;
