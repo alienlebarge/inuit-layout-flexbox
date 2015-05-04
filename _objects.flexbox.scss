@@ -53,16 +53,35 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
   margin-left: -$inuit-flexbox-spacing-unit;
 }
 
-$i: 1;
-@while $i <= 12 {
-  /**
-   * Flex items #{$i} column width
-   */
-  .flex__item--#{$i} {
-    $flex-basis: 100/12*$i*1%;
-    @include flex(0 1 $flex-basis);
-    padding-right: $inuit-flexbox-spacing-unit;
-    padding-left: $inuit-flexbox-spacing-unit;
+/**
+ * Grid with flexible columns widths.
+ */
+.flex--flex {
+  $i: 1;
+  @while $i <= 12 {
+    .flex__item--#{$i} {
+      @include flex($i);
+      padding-right: $inuit-flexbox-spacing-unit;
+      padding-left: $inuit-flexbox-spacing-unit;
+    }
+    $i: $i + 1;
   }
-$i: $i + 1;
+}
+
+/**
+ * Grid with fixed columns widths
+ *
+ * The grid has 12 columns.
+ */
+.flex--fix {
+  $i: 1;
+  @while $i <= 12 {
+    .flex__item--#{$i} {
+      $flex-basis: 100/12*$i*1%;
+      @include flex(0 1 $flex-basis);
+      padding-right: $inuit-flexbox-spacing-unit;
+      padding-left: $inuit-flexbox-spacing-unit;
+    }
+  $i: $i + 1;
+  }
 }
