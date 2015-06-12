@@ -81,19 +81,21 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
   margin-left: -$inuit-flexbox-spacing-unit;
 }
 
+.flex__item {
+  padding-right: $inuit-flexbox-spacing-unit;
+  padding-left: $inuit-flexbox-spacing-unit;
+}
+
 /**
  * Grid with flexible columns widths
  */
-.flex--flex {
-  $i: 1;
-  @while $i <= 12 {
-    .flex__item--#{$i} {
-      @include flex($i);
-      padding-right: $inuit-flexbox-spacing-unit;
-      padding-left: $inuit-flexbox-spacing-unit;
-    }
-    $i: $i + 1;
+$i: 1;
+@while $i <= 12 {
+  .flex__item--#{$i},
+  .flex--flex .flex__item--#{$i} {
+    @include flex($i);
   }
+  $i: $i + 1;
 }
 
 @include inuit-generate-responsive-item() {
@@ -102,13 +104,10 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
     /**
      * Flexible item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
      */
-     .flex--flex {
-       .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
-          @include flex($i);
-          padding-right: $inuit-flexbox-spacing-unit;
-          padding-left: $inuit-flexbox-spacing-unit;
-        }
-      }
+    .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i},
+    .flex--flex .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+      @include flex($i);
+    }
     $i: $i + 1;
   }
 }
@@ -119,17 +118,13 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
  *
  * Items can be from 1 to 12 columns width
  */
-.flex--fix {
-  $i: 1;
-  @while $i <= 12 {
-    .flex__item--#{$i} {
-      $flex-basis: 100/12*$i*1%;
-      @include flex(0 1 $flex-basis);
-      padding-right: $inuit-flexbox-spacing-unit;
-      padding-left: $inuit-flexbox-spacing-unit;
-    }
-    $i: $i + 1;
+$i: 1;
+@while $i <= 12 {
+  .flex--fix .flex__item--#{$i} {
+    $flex-basis: 100/12*$i*1%;
+    @include flex(0 1 $flex-basis);
   }
+  $i: $i + 1;
 }
 
 @include inuit-generate-responsive-item() {
@@ -138,14 +133,11 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
     /**
      * Fixed item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
      */
-     .flex--fix {
-       .#{$inuit-flexbox-namespace}flex__fix--#{$inuit-generate-responsive-item-alias}--#{$i} {
-         $flex-basis: 100/12*$i*1%;
-         @include flex(0 1 $flex-basis);
-         padding-right: $inuit-flexbox-spacing-unit;
-         padding-left: $inuit-flexbox-spacing-unit;
-        }
-      }
+    .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i},
+    .flex--fix .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+      $flex-basis: 100/12*$i*1%;
+      @include flex(0 1 $flex-basis);
+    }
     $i: $i + 1;
   }
 }
