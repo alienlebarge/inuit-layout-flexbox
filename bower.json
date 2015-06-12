@@ -24,6 +24,7 @@
   "dependencies": {
     "inuit-defaults": "~0.2.3",
     "inuit-box-sizing": "~0.2.0",
-    "inuit-responsive-settings": "~0.1.5"
+    "inuit-responsive-settings": "~0.1.5",
+    "inuit-responsive-tools": "~0.1.3"
   }
 }
