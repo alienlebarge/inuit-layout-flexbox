@@ -48,7 +48,7 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start; /* [1] */
-  justify-content: flex-start; /* [2]*/
+  justify-content: flex-start; /* [2] */
   margin-right: -$inuit-flexbox-spacing-unit;
   margin-left: -$inuit-flexbox-spacing-unit;
 }
