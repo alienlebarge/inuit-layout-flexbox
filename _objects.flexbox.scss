@@ -7,6 +7,8 @@ $inuit-flexbox-namespace:    $inuit-namespace !default;
 
 $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 
+$inuit-flexbox-fixed-grid-enable: false !default;
+
 //------------------------------------
 // Mixins
 //------------------------------------
@@ -89,58 +91,59 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
   padding-left: $inuit-flexbox-spacing-unit;
 }
 
-/**
- * Grid with flexible columns widths
- */
-$i: 1;
-@while $i <= 12 {
-  .flex__item--#{$i},
-  .flex--flex .flex__item--#{$i} {
-    @include flex($i);
-  }
-  $i: $i + 1;
-}
-
-@include inuit-generate-responsive-item() {
+@if $inuit-flexbox-fixed-grid-enable == false {
+  /**
+   * Grid with flexible columns widths
+   */
   $i: 1;
   @while $i <= 12 {
-    /**
-     * Flexible item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
-     */
-    .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i},
-    .flex--flex .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+    .flex__item--#{$i} {
       @include flex($i);
     }
     $i: $i + 1;
   }
-}
 
-
-/**
- * 12 columns grid
- *
- * Items can be from 1 to 12 columns width
- */
-$i: 1;
-@while $i <= 12 {
-  .flex--fix .flex__item--#{$i} {
-    $flex-basis: 100/12*$i*1%;
-    @include flex(0 1 $flex-basis);
+  @include inuit-generate-responsive-item() {
+    $i: 1;
+    @while $i <= 12 {
+      /**
+       * Flexible item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
+       */
+      .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+        @include flex($i);
+      }
+      $i: $i + 1;
+    }
   }
-  $i: $i + 1;
-}
 
-@include inuit-generate-responsive-item() {
+} @else {
+
+  /**
+   * 12 columns grid
+   *
+   * Items can be from 1 to 12 columns width
+   */
   $i: 1;
   @while $i <= 12 {
-    /**
-     * Fixed item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
-     */
-    .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i},
-    .flex--fix .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+    .flex__item--#{$i} {
       $flex-basis: 100/12*$i*1%;
       @include flex(0 1 $flex-basis);
     }
     $i: $i + 1;
   }
+
+  @include inuit-generate-responsive-item() {
+    $i: 1;
+    @while $i <= 12 {
+      /**
+       * Fixed item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
+       */
+      .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+        $flex-basis: 100/12*$i*1%;
+        @include flex(0 1 $flex-basis);
+      }
+      $i: $i + 1;
+    }
+  }
+
 }
