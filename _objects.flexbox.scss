@@ -114,6 +114,10 @@ $inuit-flexbox-fixed-grid-enable: false !default;
       }
       $i: $i + 1;
     }
+
+    .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
+      @include flex(1 1 100%);
+    }
   }
 
 } @else {
@@ -143,6 +147,10 @@ $inuit-flexbox-fixed-grid-enable: false !default;
         @include flex(0 1 $flex-basis);
       }
       $i: $i + 1;
+    }
+
+    .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
+      @include flex(0 1 100%);
     }
   }
 
