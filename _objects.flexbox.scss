@@ -96,12 +96,18 @@ $inuit-flexbox-fixed-grid-enable: false !default;
    */
   $i: 1;
   @while $i <= 12 {
+    /**
+     * Flexible item with a size of #{$i}
+     */
     .flex__item--#{$i} {
       @include flex($i);
     }
     $i: $i + 1;
   }
 
+  /**
+   * Flexible item with a size of 100% (full width)
+   */
   .flex__item--full {
     @include flex(1 1 100%);
   }
@@ -142,6 +148,9 @@ $inuit-flexbox-fixed-grid-enable: false !default;
    */
   $i: 1;
   @while $i <= 12 {
+    /**
+     * Flexible item with a size of #{$i}
+     */
     .flex__item--#{$i} {
       $flex-basis: 100/12*$i*1%;
       @include flex(0 1 $flex-basis);
@@ -149,6 +158,9 @@ $inuit-flexbox-fixed-grid-enable: false !default;
     $i: $i + 1;
   }
 
+  /**
+   * Flexible item with a size of 100% (full width)
+   */
   .flex__item--full {
     @include flex(1 1 100%);
   }
