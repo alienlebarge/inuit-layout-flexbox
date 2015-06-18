@@ -7,6 +7,9 @@ $inuit-flexbox-namespace:    $inuit-namespace !default;
 
 $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 
+// enable traditional grid with fixed column's width
+$inuit-flexbox-fixed-grid-enable: false !default;
+
 //------------------------------------
 // Mixins
 //------------------------------------
@@ -35,6 +38,32 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
   order: $val;
 }
 
+// Internally used mixin to quickly generate our different variants based upon
+// the breakpoints defined in `settings.responsive`.
+
+@mixin inuit-generate-responsive-item() {
+  // Loop through our previously-defined breakpoints.
+  @each $breakpoint in $breakpoints {
+
+      $inuit-generate-responsive-item-alias:      nth($breakpoint, 1) !global;
+      $inuit-generate-responsive-item-condition:  nth($breakpoint, 2);
+
+      // This isn’t ideal, but we definitely don’t want to generate widths
+      // for retina devices. Exclude retina media-qeuries manually.
+      @if ($inuit-generate-responsive-item-alias != "retina") {
+
+          @include media-query($inuit-generate-responsive-item-alias) {
+              @content;
+          } // Close media query.
+
+      } // Close retina check.
+
+      // Take the global variable back out of scope.
+      $inuit-generate-responsive-item-alias: null !global;
+
+  } // Close breakpoints loop.
+}
+
 /**
  * Row
  *
@@ -54,34 +83,114 @@ $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 }
 
 /**
- * Grid with flexible columns widths
+ * Flex item
  */
-.flex--flex {
+.flex__item {
+  padding-right: $inuit-flexbox-spacing-unit;
+  padding-left: $inuit-flexbox-spacing-unit;
+}
+
+@if $inuit-flexbox-fixed-grid-enable == false {
+  /**
+   * Grid with flexible columns widths
+   */
   $i: 1;
   @while $i <= 12 {
+    /**
+     * Flexible item with a size of #{$i}
+     */
     .flex__item--#{$i} {
       @include flex($i);
-      padding-right: $inuit-flexbox-spacing-unit;
-      padding-left: $inuit-flexbox-spacing-unit;
     }
     $i: $i + 1;
   }
-}
 
-/**
- * 12 columns grid
- *
- * Items can be from 1 to 12 columns width
- */
-.flex--fix {
+  /**
+   * Flexible item with a size of 100% (full width)
+   */
+  .flex__item--full {
+    @include flex(1 1 100%);
+  }
+
+  // check if inuit-responsive-settings is include
+  @if $inuit-responsive-settings == true {
+    // responsive classes
+    // based on inuit-responsive-settings breakpoints
+    @include inuit-generate-responsive-item() {
+      $i: 1;
+      @while $i <= 12 {
+        /**
+         * Flexible item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
+         */
+        .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+          @include flex($i);
+        }
+        $i: $i + 1;
+      }
+
+      /**
+       * Flexible item with a size of 100% (full width) for #{$inuit-generate-responsive-item-alias} viewport
+       */
+      .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
+        @include flex(1 1 100%);
+      }
+    }
+  } @else {
+    @warn "There is no breakpoints define. Include inuit-responsive-settings.";
+  }
+
+} @else {
+
+  /**
+   * 12 columns grid
+   *
+   * Items can be from 1 to 12 columns width
+   */
   $i: 1;
   @while $i <= 12 {
+    /**
+     * Flexible item with a size of #{$i}
+     */
     .flex__item--#{$i} {
       $flex-basis: 100/12*$i*1%;
       @include flex(0 1 $flex-basis);
-      padding-right: $inuit-flexbox-spacing-unit;
-      padding-left: $inuit-flexbox-spacing-unit;
     }
-  $i: $i + 1;
+    $i: $i + 1;
   }
+
+  /**
+   * Flexible item with a size of 100% (full width)
+   */
+  .flex__item--full {
+    @include flex(1 1 100%);
+  }
+
+  // check if inuit-responsive-settings is include
+  @if $inuit-responsive-settings == true {
+    // reponsive classes
+    // based on inuit-responsive-settings breakpoints
+    @include inuit-generate-responsive-item() {
+      $i: 1;
+      @while $i <= 12 {
+        /**
+         * Fixed item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
+         */
+        .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+          $flex-basis: 100/12*$i*1%;
+          @include flex(0 1 $flex-basis);
+        }
+        $i: $i + 1;
+      }
+
+      /**
+       * Flexible item with a size of 100% (full width) for #{$inuit-generate-responsive-item-alias} viewport
+       */
+      .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
+        @include flex(0 1 100%);
+      }
+    }
+  } @else {
+    @warn "There is no breakpoints define. Include inuit-responsive-settings.";
+  }
+
 }
