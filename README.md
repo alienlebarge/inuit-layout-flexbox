@@ -10,25 +10,27 @@ This is a work in progress. Use it at your own risk !
 
 ### Gride type
 
-#### Flexible grid
+The default grid use flexible column width.  
+But by setting `$inuit-flexbox-fixed-grid-enable: true;`, the column width will
+be fixed like in a classical grid system. The fixed grid system is based on
+12 columns.
 
-Flexible grid use columns wich are not fixed. They will fill the space available.
-For exemple a column with a flex ratio of 2 will be twice larger than a clumn with
-a flex ratio of 1.
-If flexible grid is what you need, use the class `flex--flex`.
+### Code
 
-    <div class="flex flex--flex">
-      <div class="flex__item--1"><div class="box"><code>.flex__item--1</code></div></div>
-      <div class="flex__item--2"><div class="box"><code>.flex__item--2</code></div></div>
-      <div class="flex__item--1"><div class="box"><code>.flex__item--1</code></div></div>
-    </div>
-
-#### Fixed grid
-
-Fixed grid is based on a 12 columns system.
-Use the `flex--fix` if you want a fixed grid.
-
-    <div class="flex flex--fix">
-      <div class="flex__item--1"><div class="box"></div></div>
-      <div class="flex__item--11"><div class="box"></div></div>
+    <div class="flex">
+        <div class="flex__item
+                    flex__item--full
+                    flex__item--lap-and-up--1
+                    flex__item--desk--1">
+        </div>
+        <div class="flex__item
+                    flex__item--1
+                    flex__item--lap-and-up--2
+                    flex__item--desk--4">
+        </div>
+        <div class="flex__item
+                    flex__item--1
+                    flex__item--lap-and-up--1
+                    flex__item--desk--2">
+        </div>
     </div>
