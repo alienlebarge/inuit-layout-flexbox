@@ -7,6 +7,7 @@ $inuit-flexbox-namespace:    $inuit-namespace !default;
 
 $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 
+// enable traditional grid with fixed column's width
 $inuit-flexbox-fixed-grid-enable: false !default;
 
 //------------------------------------
@@ -103,6 +104,12 @@ $inuit-flexbox-fixed-grid-enable: false !default;
     $i: $i + 1;
   }
 
+  .flex__item--full {
+    @include flex(1 1 100%);
+  }
+
+  // responsive classes
+  // based on inuit-responsive-settings breakpoints
   @include inuit-generate-responsive-item() {
     $i: 1;
     @while $i <= 12 {
@@ -136,6 +143,12 @@ $inuit-flexbox-fixed-grid-enable: false !default;
     $i: $i + 1;
   }
 
+  .flex__item--full {
+    @include flex(1 1 100%);
+  }
+
+  // reponsive classes
+  // based on inuit-responsive-settings breakpoints
   @include inuit-generate-responsive-item() {
     $i: 1;
     @while $i <= 12 {
