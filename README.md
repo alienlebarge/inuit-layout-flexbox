@@ -5,6 +5,7 @@ A flexbox grid system for [inuitcss framework](http://www.inuitcss.com).
 ## Work in progress
 
 This is a work in progress. Use it at your own risk !
+Checkout the [develop branche](https://github.com/alienlebarge/inuit-flexbox/tree/develop) and the [pull requests](https://github.com/alienlebarge/inuit-flexbox/pulls) if you want to know what are the next features.
 
 ## Manual
 
