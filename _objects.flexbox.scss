@@ -122,6 +122,9 @@ $inuit-flexbox-fixed-grid-enable: false !default;
         $i: $i + 1;
       }
 
+      /**
+       * Flexible item with a size of 100% (full width) for #{$inuit-generate-responsive-item-alias} viewport
+       */
       .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
         @include flex(1 1 100%);
       }
@@ -167,6 +170,9 @@ $inuit-flexbox-fixed-grid-enable: false !default;
         $i: $i + 1;
       }
 
+      /**
+       * Flexible item with a size of 100% (full width) for #{$inuit-generate-responsive-item-alias} viewport
+       */
       .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
         @include flex(0 1 100%);
       }
