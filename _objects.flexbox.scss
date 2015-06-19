@@ -3,14 +3,14 @@
 \*------------------------------------*/
 
 // Predefine the variables below in order to alter and enable specific features.
-$inuit-flexbox-namespace:    $inuit-namespace !default;
+$inuit-flexbox-namespace:               $inuit-namespace !default;
 
-$inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
-
+$inuit-flexbox-spacing-unit:            $inuit-base-spacing-unit !default;
+$inuit-flexbox-flexible-columns-numbre: 12 !default;
 
 // enable traditional grid with fixed column's width
-$inuit-flexbox-fixed-grid-enable: false !default;
-$inuit-flexbox-fixed-columns-numbre:  12 !default;
+$inuit-flexbox-fixed-grid-enable:       false !default;
+$inuit-flexbox-fixed-columns-numbre:    12 !default;
 
 //------------------------------------
 // Mixins
