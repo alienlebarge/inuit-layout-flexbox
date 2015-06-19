@@ -210,4 +210,18 @@ $inuit-flexbox-enable-order:      true !default;
     }
     $i: $i + 1;
   }
+
+  @include inuit-generate-responsive-item() {
+    $i: 1;
+    @while $i <= $inuit-flexbox-columns-number {
+      /**
+       * Make the item appear in #{$i} position for #{$inuit-generate-responsive-item-alias} viewport
+       */
+      .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--order-#{$i} {
+        order: $i;
+      }
+      $i: $i + 1;
+    }
+  }
+
 }
