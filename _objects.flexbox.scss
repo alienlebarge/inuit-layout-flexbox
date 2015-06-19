@@ -97,7 +97,7 @@ $inuit-flexbox-fixed-columns-numbre:    12 !default;
    * Grid with flexible columns widths
    */
   $i: 1;
-  @while $i <= 12 {
+  @while $i <= $inuit-flexbox-flexible-columns-numbre {
     /**
      * Flexible item with a size of #{$i}
      */
@@ -120,7 +120,7 @@ $inuit-flexbox-fixed-columns-numbre:    12 !default;
     // based on inuit-responsive-settings breakpoints
     @include inuit-generate-responsive-item() {
       $i: 1;
-      @while $i <= 12 {
+      @while $i <= $inuit-flexbox-flexible-columns-numbre {
         /**
          * Flexible item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
          */
