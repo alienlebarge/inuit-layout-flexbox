@@ -6,6 +6,8 @@ A flexbox grid system for [inuitcss framework](http://www.inuitcss.com).
 
 This is a **work in progress**. Use it at your own risk !
 
+If you want to help, you are welcome.
+
 ## Manual
 
 ### Gride type
