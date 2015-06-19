@@ -15,7 +15,21 @@ But by setting `$inuit-flexbox-fixed-grid-enable: true;`, the column width will
 be fixed like in a classical grid system. The fixed grid system is based on
 12 columns.
 
-### Basic flex
+### Width
+
+    <div class="flex">
+        <div class="flex__item
+                    flex__item--1">
+        </div>
+        <div class="flex__item
+                    flex__item--2">
+        </div>
+        <div class="flex__item
+                    flex__item--1">
+        </div>
+    </div>
+
+#### Width depending on viewport
 
     <div class="flex">
         <div class="flex__item
@@ -51,6 +65,8 @@ be fixed like in a classical grid system. The fixed grid system is based on
                     flex__item--order-1">
         </div>
     </div>
+
+#### Order depending on viewport
 
     <div class="flex">
         <div class="flex__item
