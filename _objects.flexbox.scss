@@ -7,8 +7,10 @@ $inuit-flexbox-namespace:    $inuit-namespace !default;
 
 $inuit-flexbox-spacing-unit: $inuit-base-spacing-unit !default;
 
+
 // enable traditional grid with fixed column's width
 $inuit-flexbox-fixed-grid-enable: false !default;
+$inuit-flexbox-fixed-columns-numbre:  12 !default;
 
 //------------------------------------
 // Mixins
@@ -144,15 +146,15 @@ $inuit-flexbox-fixed-grid-enable: false !default;
   /**
    * 12 columns grid
    *
-   * Items can be from 1 to 12 columns width
+   * Items can be from 1 to #{$inuit-flexbox-fixed-columns-numbre} columns width
    */
   $i: 1;
-  @while $i <= 12 {
+  @while $i <= $inuit-flexbox-fixed-columns-numbre {
     /**
      * Flexible item with a size of #{$i}
      */
     .flex__item--#{$i} {
-      $flex-basis: 100/12*$i*1%;
+      $flex-basis: 100/$inuit-flexbox-fixed-columns-numbre*$i*1%;
       @include flex(0 1 $flex-basis);
     }
     $i: $i + 1;
@@ -171,12 +173,12 @@ $inuit-flexbox-fixed-grid-enable: false !default;
     // based on inuit-responsive-settings breakpoints
     @include inuit-generate-responsive-item() {
       $i: 1;
-      @while $i <= 12 {
+      @while $i <= $inuit-flexbox-fixed-columns-numbre {
         /**
          * Fixed item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
          */
         .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
-          $flex-basis: 100/12*$i*1%;
+          $flex-basis: 100/$inuit-flexbox-fixed-columns-numbre*$i*1%;
           @include flex(0 1 $flex-basis);
         }
         $i: $i + 1;
