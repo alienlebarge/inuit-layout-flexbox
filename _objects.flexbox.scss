@@ -3,14 +3,15 @@
 \*------------------------------------*/
 
 // Predefine the variables below in order to alter and enable specific features.
-$inuit-flexbox-namespace:               $inuit-namespace !default;
+$inuit-flexbox-namespace:         $inuit-namespace !default;
 
-$inuit-flexbox-spacing-unit:            $inuit-base-spacing-unit !default;
-$inuit-flexbox-flexible-columns-numbre: 12 !default;
+$inuit-flexbox-spacing-unit:      $inuit-base-spacing-unit !default;
+$inuit-flexbox-columns-number:    12 !default;
 
 // enable traditional grid with fixed column's width
-$inuit-flexbox-fixed-grid-enable:       false !default;
-$inuit-flexbox-fixed-columns-numbre:    12 !default;
+$inuit-flexbox-fixed-grid-enable: false !default;
+
+$inuit-flexbox-enable-order:      true !default;
 
 //------------------------------------
 // Mixins
@@ -97,7 +98,7 @@ $inuit-flexbox-fixed-columns-numbre:    12 !default;
    * Grid with flexible columns widths
    */
   $i: 1;
-  @while $i <= $inuit-flexbox-flexible-columns-numbre {
+  @while $i <= $inuit-flexbox-columns-number {
     /**
      * Flexible item with a size of #{$i}
      */
@@ -120,7 +121,7 @@ $inuit-flexbox-fixed-columns-numbre:    12 !default;
     // based on inuit-responsive-settings breakpoints
     @include inuit-generate-responsive-item() {
       $i: 1;
-      @while $i <= $inuit-flexbox-flexible-columns-numbre {
+      @while $i <= $inuit-flexbox-columns-number {
         /**
          * Flexible item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
          */
@@ -146,15 +147,15 @@ $inuit-flexbox-fixed-columns-numbre:    12 !default;
   /**
    * 12 columns grid
    *
-   * Items can be from 1 to #{$inuit-flexbox-fixed-columns-numbre} columns width
+   * Items can be from 1 to #{$inuit-flexbox-columns-number} columns width
    */
   $i: 1;
-  @while $i <= $inuit-flexbox-fixed-columns-numbre {
+  @while $i <= $inuit-flexbox-columns-number {
     /**
      * Flexible item with a size of #{$i}
      */
     .flex__item--#{$i} {
-      $flex-basis: 100/$inuit-flexbox-fixed-columns-numbre*$i*1%;
+      $flex-basis: 100/$inuit-flexbox-columns-number*$i*1%;
       @include flex(0 1 $flex-basis);
     }
     $i: $i + 1;
@@ -173,12 +174,12 @@ $inuit-flexbox-fixed-columns-numbre:    12 !default;
     // based on inuit-responsive-settings breakpoints
     @include inuit-generate-responsive-item() {
       $i: 1;
-      @while $i <= $inuit-flexbox-fixed-columns-numbre {
+      @while $i <= $inuit-flexbox-columns-number {
         /**
          * Fixed item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
          */
         .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
-          $flex-basis: 100/$inuit-flexbox-fixed-columns-numbre*$i*1%;
+          $flex-basis: 100/$inuit-flexbox-columns-number*$i*1%;
           @include flex(0 1 $flex-basis);
         }
         $i: $i + 1;
@@ -195,4 +196,18 @@ $inuit-flexbox-fixed-columns-numbre:    12 !default;
     @warn "There is no breakpoints define. Include inuit-responsive-settings.";
   }
 
+}
+
+
+@if $inuit-flexbox-enable-order == true {
+  $i: 1;
+  @while $i <= $inuit-flexbox-columns-number {
+    /**
+     * Make the item appear in #{$i} position
+     */
+    .flex__item--order-#{$i} {
+      order: $i;
+    }
+    $i: $i + 1;
+  }
 }
