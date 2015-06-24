@@ -12,6 +12,7 @@ $inuit-flexbox-columns-number:    12 !default;
 $inuit-flexbox-fixed-grid-enable: false !default;
 
 $inuit-flexbox-enable-order:      true !default;
+$inuit-flexbox-enable-reverse:    true !default;
 
 //------------------------------------
 // Mixins
@@ -198,7 +199,9 @@ $inuit-flexbox-enable-order:      true !default;
 
 }
 
-
+//------------------------------------
+// Order
+//------------------------------------
 @if $inuit-flexbox-enable-order == true {
   $i: 1;
   @while $i <= $inuit-flexbox-columns-number {
@@ -224,4 +227,18 @@ $inuit-flexbox-enable-order:      true !default;
     }
   }
 
+}
+
+//------------------------------------
+// Reverse
+//------------------------------------
+@if $inuit-flexbox-enable-order == true {
+  /**
+   * Reverse item direction
+   */
+  .flex--reverse {
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
 }
