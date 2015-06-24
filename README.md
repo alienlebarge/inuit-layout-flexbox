@@ -87,3 +87,9 @@ be fixed like in a classical grid system. The fixed grid system is based on
                     flex__item--desk--order-1">
         </div>
     </div>
+
+### Reverse
+
+    <div class="flex flex--reverse">
+        ...
+    </div>
