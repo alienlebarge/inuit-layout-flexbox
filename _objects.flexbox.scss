@@ -241,11 +241,3 @@ $inuit-flexbox-enable-offset:     false !default;
     flex-direction: row-reverse;
   }
 }
-
-//------------------------------------
-// Offset
-//------------------------------------
-
-@if $inuit-flexbox-enable-offset == true {
-
-}
