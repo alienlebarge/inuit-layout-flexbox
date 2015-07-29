@@ -8,11 +8,10 @@ $inuit-flexbox-namespace:         $inuit-namespace !default;
 $inuit-flexbox-spacing-unit:      $inuit-base-spacing-unit !default;
 $inuit-flexbox-columns-number:    12 !default;
 
-// enable traditional grid with fixed column's width
 $inuit-flexbox-fixed-grid-enable: false !default;
-
-$inuit-flexbox-enable-order:      true !default;
-$inuit-flexbox-enable-reverse:    true !default;
+$inuit-flexbox-enable-order:      false !default;
+$inuit-flexbox-enable-reverse:    false !default;
+$inuit-flexbox-enable-offset:     false !default;
 
 //------------------------------------
 // Mixins
@@ -241,4 +240,12 @@ $inuit-flexbox-enable-reverse:    true !default;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
   }
+}
+
+//------------------------------------
+// Offset
+//------------------------------------
+
+@if $inuit-flexbox-enable-offset == true {
+
 }

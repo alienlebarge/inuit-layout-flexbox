@@ -1,3 +1,9 @@
+// enable all inuit-flexbox capabilities
+$inuit-flexbox-fixed-grid-enable: false !default;
+$inuit-flexbox-enable-order:      false !default;
+$inuit-flexbox-enable-reverse:    false !default;
+$inuit-flexbox-enable-offset:     false !default;
+
 @import '../bower_components/inuit-defaults/settings.defaults';
 @import '../bower_components/inuit-responsive-settings/settings.responsive';
 @import '../bower_components/inuit-responsive-tools/tools.responsive';
