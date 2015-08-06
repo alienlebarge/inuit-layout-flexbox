@@ -8,6 +8,8 @@ $inuit-flexbox-namespace:         $inuit-namespace !default;
 $inuit-flexbox-spacing-unit:      $inuit-base-spacing-unit !default;
 $inuit-flexbox-columns-number:    12 !default;
 
+
+$inuit-flexbox-flex-grid-enable:  false !default;
 $inuit-flexbox-fixed-grid-enable: false !default;
 $inuit-flexbox-enable-order:      false !default;
 $inuit-flexbox-enable-reverse:    false !default;
@@ -88,12 +90,15 @@ $inuit-flexbox-enable-offset:     false !default;
 /**
  * Flex item
  */
-.flex__item {
+.#{$inuit-flexbox-namespace}flex__item {
   padding-right: $inuit-flexbox-spacing-unit;
   padding-left: $inuit-flexbox-spacing-unit;
 }
 
-@if $inuit-flexbox-fixed-grid-enable == false {
+
+// Flexible grid system
+@if $inuit-flexbox-flex-grid-enable == true {
+
   /**
    * Grid with flexible columns widths
    */
@@ -102,7 +107,7 @@ $inuit-flexbox-enable-offset:     false !default;
     /**
      * Flexible item with a size of #{$i}
      */
-    .flex__item--#{$i} {
+    .#{$inuit-flexbox-namespace}flex--flex .#{$inuit-flexbox-namespace}flex__item--#{$i} {
       @include flex($i);
     }
     $i: $i + 1;
@@ -111,7 +116,7 @@ $inuit-flexbox-enable-offset:     false !default;
   /**
    * Flexible item with a size of 100% (full width)
    */
-  .flex__item--full {
+  .#{$inuit-flexbox-namespace}flex--flex .#{$inuit-flexbox-namespace}flex__item--full {
     @include flex(1 1 100%);
   }
 
@@ -125,7 +130,7 @@ $inuit-flexbox-enable-offset:     false !default;
         /**
          * Flexible item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
          */
-        .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+        .#{$inuit-flexbox-namespace}flex--flex .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
           @include flex($i);
         }
         $i: $i + 1;
@@ -134,7 +139,7 @@ $inuit-flexbox-enable-offset:     false !default;
       /**
        * Flexible item with a size of 100% (full width) for #{$inuit-generate-responsive-item-alias} viewport
        */
-      .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
+      .#{$inuit-flexbox-namespace}flex--flex .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
         @include flex(1 1 100%);
       }
     }
@@ -142,7 +147,10 @@ $inuit-flexbox-enable-offset:     false !default;
     @warn "There is no breakpoints define. Include inuit-responsive-settings.";
   }
 
-} @else {
+}
+
+// Fixed grid system
+@if $inuit-flexbox-fixed-grid-enable == true {
 
   /**
    * 12 columns grid
@@ -154,7 +162,7 @@ $inuit-flexbox-enable-offset:     false !default;
     /**
      * Flexible item with a size of #{$i}
      */
-    .flex__item--#{$i} {
+    .#{$inuit-flexbox-namespace}flex--fixed .#{$inuit-flexbox-namespace}flex__item--#{$i} {
       $flex-basis: 100/$inuit-flexbox-columns-number*$i*1%;
       @include flex(0 1 $flex-basis);
     }
@@ -164,7 +172,7 @@ $inuit-flexbox-enable-offset:     false !default;
   /**
    * Flexible item with a size of 100% (full width)
    */
-  .flex__item--full {
+  .#{$inuit-flexbox-namespace}flex--fixed .#{$inuit-flexbox-namespace}flex__item--full {
     @include flex(1 1 100%);
   }
 
@@ -178,7 +186,7 @@ $inuit-flexbox-enable-offset:     false !default;
         /**
          * Fixed item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
          */
-        .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+        .#{$inuit-flexbox-namespace}flex--fixed .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
           $flex-basis: 100/$inuit-flexbox-columns-number*$i*1%;
           @include flex(0 1 $flex-basis);
         }
@@ -188,7 +196,7 @@ $inuit-flexbox-enable-offset:     false !default;
       /**
        * Flexible item with a size of 100% (full width) for #{$inuit-generate-responsive-item-alias} viewport
        */
-      .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
+      .#{$inuit-flexbox-namespace}flex--fixed .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
         @include flex(0 1 100%);
       }
     }
@@ -207,7 +215,7 @@ $inuit-flexbox-enable-offset:     false !default;
     /**
      * Make the item appear in #{$i} position
      */
-    .flex__item--order-#{$i} {
+    .#{$inuit-flexbox-namespace}flex__item--order-#{$i} {
       order: $i;
     }
     $i: $i + 1;
@@ -235,7 +243,7 @@ $inuit-flexbox-enable-offset:     false !default;
   /**
    * Reverse item direction
    */
-  .flex--reverse {
+  .#{$inuit-flexbox-namespace}flex--reverse {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
