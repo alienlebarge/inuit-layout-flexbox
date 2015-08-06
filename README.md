@@ -49,7 +49,6 @@ You can also change the number of columns with the variable `$inuit-flexbox-colu
         </div>
     </div>
 
-
 ### Width depending on viewport
 
     <div class="flex--flex">
