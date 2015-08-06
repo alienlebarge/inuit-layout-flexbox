@@ -16,8 +16,7 @@ There two type of grid system: on that's use flexbox `flex-grow` propertie and o
 
 #### Flexible grid
 
-Flexible grid use flexbox `flex-grow` propertie.
-To enable it, set `$inuit-flexbox-flex-grid-enable: true`.
+Flexible grid use flexbox `flex-grow` propertie. To enable it, set `$inuit-flexbox-flex-grid-enable: true`.
 
     <div class="flex flex--flex">
         <div class="flex__item
@@ -33,9 +32,8 @@ To enable it, set `$inuit-flexbox-flex-grid-enable: true`.
 
 #### Fixed grid
 
-This grid system is based on a 12 columns width architecture.
-You can enable it by setting `$inuit-flexbox-fixed-grid-enable: true`.
-You can also change the number of columns with the variable `$inuit-flexbox-columns-number`
+This grid system is based on a 12 columns width architecture. You can enable it by setting `$inuit-flexbox-fixed-grid-enable: true`.  
+You can also change the number of columns with the variable `$inuit-flexbox-columns-number`.
 
     <div class="flex flex--fixed">
         <div class="flex__item
