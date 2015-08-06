@@ -12,14 +12,14 @@ If you want to help, you are welcome.
 
 ### Gride type
 
-The default grid use flexible column width.  
-But by setting `$inuit-flexbox-fixed-grid-enable: true;`, the column width will
-be fixed like in a classical grid system. The fixed grid system is based on
-12 columns.
+There two type of grid system: on that's use flexbox `flex-grow` propertie and one that is more traditional who use a 12 columns width grid system.
 
-### Width
+#### Flexible grid
 
-    <div class="flex">
+Flexible grid use flexbox `flex-grow` propertie.
+To enable it, set `$inuit-flexbox-flex-grid-enable: true`.
+
+    <div class="flex flex--flex">
         <div class="flex__item
                     flex__item--1">
         </div>
@@ -31,9 +31,28 @@ be fixed like in a classical grid system. The fixed grid system is based on
         </div>
     </div>
 
-#### Width depending on viewport
+#### Fixed grid
 
-    <div class="flex">
+This grid system is based on a 12 columns width architecture.
+You can enable it by setting `$inuit-flexbox-fixed-grid-enable: true`.
+You can also change the number of columns with the variable `$inuit-flexbox-columns-number`
+
+    <div class="flex flex--fixed">
+        <div class="flex__item
+                    flex__item--1">
+        </div>
+        <div class="flex__item
+                    flex__item--2">
+        </div>
+        <div class="flex__item
+                    flex__item--1">
+        </div>
+    </div>
+
+
+### Width depending on viewport
+
+    <div class="flex--flex">
         <div class="flex__item
                     flex__item--full
                     flex__item--lap-and-up--1
@@ -53,7 +72,7 @@ be fixed like in a classical grid system. The fixed grid system is based on
 
 ### Order
 
-    <div class="flex">
+    <div class="flex flex--flex">
         <div class="flex__item
                     flex__item--1
                     flex__item--order-2">
@@ -70,7 +89,7 @@ be fixed like in a classical grid system. The fixed grid system is based on
 
 #### Order depending on viewport
 
-    <div class="flex">
+    <div class="flex flex--flex">
         <div class="flex__item
                     flex__item--full
                     flex__item--lap-and-up--order-2
@@ -90,6 +109,6 @@ be fixed like in a classical grid system. The fixed grid system is based on
 
 ### Reverse
 
-    <div class="flex flex--reverse">
+    <div class="flex flex--flex flex--reverse">
         ...
     </div>
