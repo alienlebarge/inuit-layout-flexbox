@@ -152,7 +152,7 @@ $inuit-layout-enable-offset:     false !default;
 @if $inuit-layout-fixed-grid-enable == true {
 
   /**
-   * 12 columns grid
+   * #{$inuit-layout-columns-number} columns grid
    *
    * Items can be from 1 to #{$inuit-layout-columns-number} columns width
    */
