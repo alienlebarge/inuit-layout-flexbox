@@ -242,7 +242,7 @@ $inuit-layout-enable-offset:     false !default;
   /**
    * Reverse item direction
    */
-  .#{$inuit-layout-namespace}flex--reverse {
+  .#{$inuit-layout-namespace}layout--reverse {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
