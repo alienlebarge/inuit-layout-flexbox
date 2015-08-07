@@ -19,15 +19,15 @@ There two type of grid system: on that's use flexbox `flex-grow` propertie and o
 
 Flexible grid use flexbox `flex-grow` propertie. To enable it, set `$inuit-flexbox-flex-grid-enable: true`.
 
-    <div class="flex flex--flex">
-        <div class="flex__item
-                    flex__item--1">
+    <div class="layout layout--flex">
+        <div class="layout__item
+                    layout__item--1">
         </div>
-        <div class="flex__item
-                    flex__item--2">
+        <div class="layout__item
+                    layout__item--2">
         </div>
-        <div class="flex__item
-                    flex__item--1">
+        <div class="layout__item
+                    layout__item--1">
         </div>
     </div>
 
@@ -36,77 +36,77 @@ Flexible grid use flexbox `flex-grow` propertie. To enable it, set `$inuit-flexb
 This grid system is based on a 12 columns width architecture. You can enable it by setting `$inuit-flexbox-fixed-grid-enable: true`.  
 You can also change the number of columns with the variable `$inuit-flexbox-columns-number`.
 
-    <div class="flex flex--fixed">
-        <div class="flex__item
-                    flex__item--1">
+    <div class="layout layout--fixed">
+        <div class="layout__item
+                    layout__item--1">
         </div>
-        <div class="flex__item
-                    flex__item--2">
+        <div class="layout__item
+                    layout__item--2">
         </div>
-        <div class="flex__item
-                    flex__item--1">
+        <div class="layout__item
+                    layout__item--1">
         </div>
     </div>
 
 ### Width depending on viewport
 
-    <div class="flex--flex">
-        <div class="flex__item
-                    flex__item--full
-                    flex__item--lap-and-up--1
-                    flex__item--desk--1">
+    <div class="layout--flex">
+        <div class="layout__item
+                    layout__item--full
+                    layout__item--lap-and-up--1
+                    layout__item--desk--1">
         </div>
-        <div class="flex__item
-                    flex__item--1
-                    flex__item--lap-and-up--2
-                    flex__item--desk--4">
+        <div class="layout__item
+                    layout__item--1
+                    layout__item--lap-and-up--2
+                    layout__item--desk--4">
         </div>
-        <div class="flex__item
-                    flex__item--1
-                    flex__item--lap-and-up--1
-                    flex__item--desk--2">
+        <div class="layout__item
+                    layout__item--1
+                    layout__item--lap-and-up--1
+                    layout__item--desk--2">
         </div>
     </div>
 
 ### Order
 
-    <div class="flex flex--flex">
-        <div class="flex__item
-                    flex__item--1
-                    flex__item--order-2">
+    <div class="layout layout--flex">
+        <div class="layout__item
+                    layout__item--1
+                    layout__item--order-2">
         </div>
-        <div class="flex__item
-                    flex__item--1
-                    flex__item--order-3">
+        <div class="layout__item
+                    layout__item--1
+                    layout__item--order-3">
         </div>
-        <div class="flex__item
-                    flex__item--1
-                    flex__item--order-1">
+        <div class="layout__item
+                    layout__item--1
+                    layout__item--order-1">
         </div>
     </div>
 
 #### Order depending on viewport
 
-    <div class="flex flex--flex">
-        <div class="flex__item
-                    flex__item--full
-                    flex__item--lap-and-up--order-2
-                    flex__item--desk--order-3">
+    <div class="layout layout--flex">
+        <div class="layout__item
+                    layout__item--full
+                    layout__item--lap-and-up--order-2
+                    layout__item--desk--order-3">
         </div>
-        <div class="flex__item
-                    flex__item--1
-                    flex__item--lap-and-up--order-1
-                    flex__item--desk--order-2">
+        <div class="layout__item
+                    layout__item--1
+                    layout__item--lap-and-up--order-1
+                    layout__item--desk--order-2">
         </div>
-        <div class="flex__item
-                    flex__item--1
-                    flex__item--lap-and-up--order-3
-                    flex__item--desk--order-1">
+        <div class="layout__item
+                    layout__item--1
+                    layout__item--lap-and-up--order-3
+                    layout__item--desk--order-1">
         </div>
     </div>
 
 ### Reverse
 
-    <div class="flex flex--flex flex--reverse">
+    <div class="layout layout--flex layout--reverse">
         ...
     </div>
