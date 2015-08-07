@@ -14,6 +14,10 @@ $inuit-layout-enable-order:      false !default;
 $inuit-layout-enable-reverse:    false !default;
 $inuit-layout-enable-offset:     false !default;
 
+
+
+
+
 //------------------------------------
 // Mixins
 //------------------------------------
@@ -44,7 +48,6 @@ $inuit-layout-enable-offset:     false !default;
 
 // Internally used mixin to quickly generate our different variants based upon
 // the breakpoints defined in `settings.responsive`.
-
 @mixin inuit-generate-responsive-item() {
   // Loop through our previously-defined breakpoints.
   @each $breakpoint in $breakpoints {
@@ -68,8 +71,12 @@ $inuit-layout-enable-offset:     false !default;
   } // Close breakpoints loop.
 }
 
+
+
+
+
 /**
- * Row
+ * Layout
  *
  * 1. Defines the default behaviour for how flex items are laid out along the
  *    cross axis on the current line. Item are aligned at the top. Items are
@@ -86,6 +93,10 @@ $inuit-layout-enable-offset:     false !default;
   margin-left: -$inuit-layout-gutter;
 }
 
+
+
+
+
 /**
  * Flex item
  */
@@ -95,7 +106,13 @@ $inuit-layout-enable-offset:     false !default;
 }
 
 
+
+
+
+//------------------------------------
 // Flexible grid system
+//------------------------------------
+
 @if $inuit-layout-flex-grid-enable == true {
 
   /**
@@ -148,7 +165,14 @@ $inuit-layout-enable-offset:     false !default;
 
 }
 
+
+
+
+
+//------------------------------------
 // Fixed grid system
+//------------------------------------
+
 @if $inuit-layout-fixed-grid-enable == true {
 
   /**
@@ -205,9 +229,14 @@ $inuit-layout-enable-offset:     false !default;
 
 }
 
+
+
+
+
 //------------------------------------
 // Order
 //------------------------------------
+
 @if $inuit-layout-enable-order == true {
   $i: 1;
   @while $i <= $inuit-layout-columns-number {
@@ -235,9 +264,14 @@ $inuit-layout-enable-offset:     false !default;
 
 }
 
+
+
+
+
 //------------------------------------
 // Reverse
 //------------------------------------
+
 @if $inuit-layout-enable-order == true {
   /**
    * Reverse item direction
@@ -249,6 +283,10 @@ $inuit-layout-enable-offset:     false !default;
   }
 }
 
+
+
+
+
 //------------------------------------
 // Offset
 //------------------------------------
@@ -258,29 +296,29 @@ $inuit-layout-enable-offset:     false !default;
   /**
    * Offset
    */
-   $i: 1;
-   @while $i <= $inuit-layout-columns-number {
-     /**
-      * Offset of #{$i} column(s) width
-      */
-     .#{$inuit-layout-namespace}layout__item--offset-#{$i} {
-       margin-left: 100/$inuit-layout-columns-number*$i*1%;
-     }
-     $i: $i + 1;
-   }
+  $i: 1;
+  @while $i <= $inuit-layout-columns-number {
+   /**
+    * Offset of #{$i} column(s) width
+    */
+    .#{$inuit-layout-namespace}layout__item--offset-#{$i} {
+      margin-left: 100/$inuit-layout-columns-number*$i*1%;
+    }
+    $i: $i + 1;
+  }
 
-   // responsive offsets
-   @include inuit-generate-responsive-item() {
-     $i: 1;
-     @while $i <= $inuit-layout-columns-number {
-       /**
-        * Offset of #{$i} columns for #{$inuit-generate-responsive-item-alias} viewport
-        */
-       .#{$inuit-layout-namespace}layout__item--#{$inuit-generate-responsive-item-alias}--offset-#{$i} {
-          margin-left: 100/$inuit-layout-columns-number*$i*1%;
-       }
-       $i: $i + 1;
-     }
-   }
+  // responsive offsets
+  @include inuit-generate-responsive-item() {
+    $i: 1;
+    @while $i <= $inuit-layout-columns-number {
+      /**
+      * Offset of #{$i} columns for #{$inuit-generate-responsive-item-alias} viewport
+      */
+      .#{$inuit-layout-namespace}layout__item--#{$inuit-generate-responsive-item-alias}--offset-#{$i} {
+        margin-left: 100/$inuit-layout-columns-number*$i*1%;
+      }
+      $i: $i + 1;
+    }
+  }
 
 }
