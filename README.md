@@ -110,3 +110,24 @@ You can also change the number of columns with the variable `$inuit-flexbox-colu
     <div class="layout layout--flex layout--reverse">
         ...
     </div>
+
+### Offset
+
+Offsets are only available for `.layout--fixed` grid.
+
+    <div class="layout layout--fixed">
+      <div class="layout__item
+                  layout__item--6
+                  layout__item--offset-6">
+      </div>
+    </div>
+
+#### Responsive offset
+
+    <div class="layout layout--fixed">
+      <div class="layout__item layout__item--1
+                  layout__item--palm--offset-2
+                  layout__item--lap--offset-5
+                  layout__item--desk--offset-11">
+      </div>
+    </div>
