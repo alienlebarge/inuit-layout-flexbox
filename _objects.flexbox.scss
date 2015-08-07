@@ -3,17 +3,17 @@
 \*------------------------------------*/
 
 // Predefine the variables below in order to alter and enable specific features.
-$inuit-flexbox-namespace:         $inuit-namespace !default;
+$inuit-layout-namespace:         $inuit-namespace !default;
 
-$inuit-flexbox-spacing-unit:      $inuit-base-spacing-unit !default;
-$inuit-flexbox-columns-number:    12 !default;
+$inuit-layout-spacing-unit:      $inuit-base-spacing-unit !default;
+$inuit-layout-columns-number:    12 !default;
 
 
-$inuit-flexbox-flex-grid-enable:  false !default;
-$inuit-flexbox-fixed-grid-enable: false !default;
-$inuit-flexbox-enable-order:      false !default;
-$inuit-flexbox-enable-reverse:    false !default;
-$inuit-flexbox-enable-offset:     false !default;
+$inuit-layout-flex-grid-enable:  false !default;
+$inuit-layout-fixed-grid-enable: false !default;
+$inuit-layout-enable-order:      false !default;
+$inuit-layout-enable-reverse:    false !default;
+$inuit-layout-enable-offset:     false !default;
 
 //------------------------------------
 // Mixins
@@ -77,37 +77,37 @@ $inuit-flexbox-enable-offset:     false !default;
  *    aligned to the top.
  * 2. Defines the alignment along the main axis. Items are aligne on the left.
  */
-.#{$inuit-flexbox-namespace}flex {
+.#{$inuit-layout-namespace}layout {
   @include flexbox();
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start; /* [1] */
   justify-content: flex-start; /* [2] */
-  margin-right: -$inuit-flexbox-spacing-unit;
-  margin-left: -$inuit-flexbox-spacing-unit;
+  margin-right: -$inuit-layout-spacing-unit;
+  margin-left: -$inuit-layout-spacing-unit;
 }
 
 /**
  * Flex item
  */
-.#{$inuit-flexbox-namespace}flex__item {
-  padding-right: $inuit-flexbox-spacing-unit;
-  padding-left: $inuit-flexbox-spacing-unit;
+.#{$inuit-layout-namespace}layout__item {
+  padding-right: $inuit-layout-spacing-unit;
+  padding-left: $inuit-layout-spacing-unit;
 }
 
 
 // Flexible grid system
-@if $inuit-flexbox-flex-grid-enable == true {
+@if $inuit-layout-flex-grid-enable == true {
 
   /**
    * Grid with flexible columns widths
    */
   $i: 1;
-  @while $i <= $inuit-flexbox-columns-number {
+  @while $i <= $inuit-layout-columns-number {
     /**
      * Flexible item with a size of #{$i}
      */
-    .#{$inuit-flexbox-namespace}flex--flex .#{$inuit-flexbox-namespace}flex__item--#{$i} {
+    .#{$inuit-layout-namespace}layout--flex .#{$inuit-layout-namespace}layout__item--#{$i} {
       @include flex($i);
     }
     $i: $i + 1;
@@ -116,7 +116,7 @@ $inuit-flexbox-enable-offset:     false !default;
   /**
    * Flexible item with a size of 100% (full width)
    */
-  .#{$inuit-flexbox-namespace}flex--flex .#{$inuit-flexbox-namespace}flex__item--full {
+  .#{$inuit-layout-namespace}layout--flex .#{$inuit-layout-namespace}layout__item--full {
     @include flex(1 1 100%);
   }
 
@@ -126,11 +126,11 @@ $inuit-flexbox-enable-offset:     false !default;
     // based on inuit-responsive-settings breakpoints
     @include inuit-generate-responsive-item() {
       $i: 1;
-      @while $i <= $inuit-flexbox-columns-number {
+      @while $i <= $inuit-layout-columns-number {
         /**
          * Flexible item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
          */
-        .#{$inuit-flexbox-namespace}flex--flex .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+        .#{$inuit-layout-namespace}layout--flex .#{$inuit-layout-namespace}layout__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
           @include flex($i);
         }
         $i: $i + 1;
@@ -139,7 +139,7 @@ $inuit-flexbox-enable-offset:     false !default;
       /**
        * Flexible item with a size of 100% (full width) for #{$inuit-generate-responsive-item-alias} viewport
        */
-      .#{$inuit-flexbox-namespace}flex--flex .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
+      .#{$inuit-layout-namespace}layout--flex .#{$inuit-layout-namespace}layout__item--#{$inuit-generate-responsive-item-alias}--full {
         @include flex(1 1 100%);
       }
     }
@@ -150,20 +150,20 @@ $inuit-flexbox-enable-offset:     false !default;
 }
 
 // Fixed grid system
-@if $inuit-flexbox-fixed-grid-enable == true {
+@if $inuit-layout-fixed-grid-enable == true {
 
   /**
    * 12 columns grid
    *
-   * Items can be from 1 to #{$inuit-flexbox-columns-number} columns width
+   * Items can be from 1 to #{$inuit-layout-columns-number} columns width
    */
   $i: 1;
-  @while $i <= $inuit-flexbox-columns-number {
+  @while $i <= $inuit-layout-columns-number {
     /**
      * Flexible item with a size of #{$i}
      */
-    .#{$inuit-flexbox-namespace}flex--fixed .#{$inuit-flexbox-namespace}flex__item--#{$i} {
-      $flex-basis: 100/$inuit-flexbox-columns-number*$i*1%;
+    .#{$inuit-layout-namespace}layout--fixed .#{$inuit-layout-namespace}layout__item--#{$i} {
+      $flex-basis: 100/$inuit-layout-columns-number*$i*1%;
       @include flex(0 1 $flex-basis);
     }
     $i: $i + 1;
@@ -172,7 +172,7 @@ $inuit-flexbox-enable-offset:     false !default;
   /**
    * Flexible item with a size of 100% (full width)
    */
-  .#{$inuit-flexbox-namespace}flex--fixed .#{$inuit-flexbox-namespace}flex__item--full {
+  .#{$inuit-layout-namespace}layout--fixed .#{$inuit-layout-namespace}layout__item--full {
     @include flex(1 1 100%);
   }
 
@@ -182,12 +182,12 @@ $inuit-flexbox-enable-offset:     false !default;
     // based on inuit-responsive-settings breakpoints
     @include inuit-generate-responsive-item() {
       $i: 1;
-      @while $i <= $inuit-flexbox-columns-number {
+      @while $i <= $inuit-layout-columns-number {
         /**
          * Fixed item with a size of #{$i} for #{$inuit-generate-responsive-item-alias} viewport
          */
-        .#{$inuit-flexbox-namespace}flex--fixed .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
-          $flex-basis: 100/$inuit-flexbox-columns-number*$i*1%;
+        .#{$inuit-layout-namespace}layout--fixed .#{$inuit-layout-namespace}layout__item--#{$inuit-generate-responsive-item-alias}--#{$i} {
+          $flex-basis: 100/$inuit-layout-columns-number*$i*1%;
           @include flex(0 1 $flex-basis);
         }
         $i: $i + 1;
@@ -196,7 +196,7 @@ $inuit-flexbox-enable-offset:     false !default;
       /**
        * Flexible item with a size of 100% (full width) for #{$inuit-generate-responsive-item-alias} viewport
        */
-      .#{$inuit-flexbox-namespace}flex--fixed .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--full {
+      .#{$inuit-layout-namespace}layout--fixed .#{$inuit-layout-namespace}layout__item--#{$inuit-generate-responsive-item-alias}--full {
         @include flex(0 1 100%);
       }
     }
@@ -209,13 +209,13 @@ $inuit-flexbox-enable-offset:     false !default;
 //------------------------------------
 // Order
 //------------------------------------
-@if $inuit-flexbox-enable-order == true {
+@if $inuit-layout-enable-order == true {
   $i: 1;
-  @while $i <= $inuit-flexbox-columns-number {
+  @while $i <= $inuit-layout-columns-number {
     /**
      * Make the item appear in #{$i} position
      */
-    .#{$inuit-flexbox-namespace}flex__item--order-#{$i} {
+    .#{$inuit-layout-namespace}layout__item--order-#{$i} {
       order: $i;
     }
     $i: $i + 1;
@@ -223,11 +223,11 @@ $inuit-flexbox-enable-offset:     false !default;
 
   @include inuit-generate-responsive-item() {
     $i: 1;
-    @while $i <= $inuit-flexbox-columns-number {
+    @while $i <= $inuit-layout-columns-number {
       /**
        * Make the item appear in #{$i} position for #{$inuit-generate-responsive-item-alias} viewport
        */
-      .#{$inuit-flexbox-namespace}flex__item--#{$inuit-generate-responsive-item-alias}--order-#{$i} {
+      .#{$inuit-layout-namespace}layout__item--#{$inuit-generate-responsive-item-alias}--order-#{$i} {
         order: $i;
       }
       $i: $i + 1;
@@ -239,11 +239,11 @@ $inuit-flexbox-enable-offset:     false !default;
 //------------------------------------
 // Reverse
 //------------------------------------
-@if $inuit-flexbox-enable-order == true {
+@if $inuit-layout-enable-order == true {
   /**
    * Reverse item direction
    */
-  .#{$inuit-flexbox-namespace}flex--reverse {
+  .#{$inuit-layout-namespace}flex--reverse {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
