@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 /**
- * Inuitcss-flexbox objects is a layout system based on flexbox capabilities. 
+ * Inuitcss-flexbox objects is a layout system based on flexbox capabilities.
  */
 
 // Predefine the variables below in order to alter and enable specific features.
@@ -21,34 +21,6 @@ $inuit-layout-enable-offset:     false !default;
 
 
 
-
-//------------------------------------
-// Mixins
-//------------------------------------
-
-@mixin flexbox() {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-}
-
-@mixin flex($values) {
-  -webkit-box-flex: $values;
-  -moz-box-flex: $values;
-  -webkit-flex: $values;
-  -ms-flex: $values;
-  flex: $values;
-}
-
-@mixin order($val) {
-  -webkit-box-ordinal-group: $val;
-  -moz-box-ordinal-group: $val;
-  -ms-flex-order: $val;
-  -webkit-order: $val;
-  order: $val;
-}
 
 // Internally used mixin to quickly generate our different variants based upon
 // the breakpoints defined in `settings.responsive`.
