@@ -7,18 +7,20 @@
  */
 
 // Predefine the variables below in order to alter and enable specific features.
-$inuit-layout-namespace:         $inuit-namespace !default;
+$inuit-layout-namespace:                $inuit-namespace !default;
 
-$inuit-layout-gutter:            $inuit-base-spacing-unit--small !default;
-$inuit-layout-columns-number:    12 !default;
+$inuit-layout-gutter:                   $inuit-base-spacing-unit--small !default;
+$inuit-layout-columns-number:           12 !default;
 
-$inuit-layout-flex-grid-enable:  false !default;
-$inuit-layout-fixed-grid-enable: false !default;
-$inuit-layout-enable-order:      false !default;
-$inuit-layout-enable-reverse:    false !default;
-$inuit-layout-enable-offset:     false !default;
+$inuit-layout-flex-grid-enable:         false !default;
+$inuit-layout-fixed-grid-enable:        false !default;
+$inuit-layout-enable-order:             false !default;
+$inuit-layout-enable-reverse:           false !default;
+$inuit-layout-enable-offset:            false !default;
 
-$inuit-layout-flex-grid-class:   'layout' !default;
+$inuit-generate-responsive-item-alias:  null !default;
+$inuit-layout-flex-grid-class:          'layout' !default;
+
 
 
 
