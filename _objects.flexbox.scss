@@ -59,7 +59,7 @@ $inuit-layout-enable-offset:     false !default;
  *    aligned to the top.
  * 2. Defines the alignment along the main axis. Items are aligne on the left.
  */
-.#{$inuit-layout-namespace}layout {
+.#{$inuit-layout-namespace}layout--flex {
   @include flexbox();
   flex-direction: row;
   flex-wrap: wrap;
@@ -76,7 +76,7 @@ $inuit-layout-enable-offset:     false !default;
 /**
  * Flex item
  */
-.#{$inuit-layout-namespace}layout__item {
+.#{$inuit-layout-namespace}layout--flex .#{$inuit-layout-namespace}layout__item {
   padding-right: $inuit-layout-gutter;
   padding-left: $inuit-layout-gutter;
 }
