@@ -271,7 +271,7 @@ $inuit-layout-enable-offset:     false !default;
 //------------------------------------
 
 // offsets are only available for fixed grid layout
-@if $inuit-layout-enable-offset == true && $inuit-layout-fixed-grid-enable == true {
+@if $inuit-layout-enable-offset == true and $inuit-layout-fixed-grid-enable == true {
   /**
    * Offset
    */
