@@ -28,7 +28,7 @@ $inuit-layout-enable-offset:     false !default;
   // Loop through our previously-defined breakpoints.
   @each $breakpoint in $breakpoints {
 
-      $inuit-generate-responsive-item-alias:      nth($breakpoint, 1) !global;
+      $inuit-generate-responsive-item-alias:      nth($breakpoint, 1);
       $inuit-generate-responsive-item-condition:  nth($breakpoint, 2);
 
       // This isn’t ideal, but we definitely don’t want to generate widths
